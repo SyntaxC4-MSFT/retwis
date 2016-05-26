@@ -102,22 +102,14 @@
                 {
                     "apiVersion": "2015-08-01",
                     "type": "config",
-                    "name": "web",
+                    "name": "appsettings",
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', parameters('siteName'))]",
                         "[concat('Microsoft.Cache/Redis/', parameters('siteName'))]"
                     ],
                     "properties": {
-                        "appSettings": [
-                            {
-                                "name": "REDIS_HOST",
-                                "value": "[concat(parameters('siteName'), '.redis.cache.windows.net:6379')]"
-                            },
-                            {
-                                "name": "REDIS_KEY",
-                                "value": "[listKeys(resourceId('Microsoft.Cache/Redis', parameters('siteName')), '2014-04-01').primaryKey]"
-                            }
-                        ]
+                        "REDIS_HOST": "[concat(parameters('siteName'), '.redis.cache.windows.net:6379')]",
+                        "REDIS_KEY": "[listKeys(resourceId('Microsoft.Cache/Redis', parameters('siteName')), '2014-04-01').primaryKey]"
                     }
                 },
                 {
