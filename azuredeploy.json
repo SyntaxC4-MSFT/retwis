@@ -104,7 +104,8 @@
                     "type": "config",
                     "name": "web",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
+                        "[concat('Microsoft.Web/sites/', parameters('siteName'))]",
+                        "[concat('Microsoft.Cache/Redis/', parameters('siteName'))]"
                     ],
                     "properties": {
                         "appSettings": [
